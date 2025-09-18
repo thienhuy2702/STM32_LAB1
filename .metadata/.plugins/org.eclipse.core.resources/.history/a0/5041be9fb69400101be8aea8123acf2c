@@ -103,7 +103,7 @@ int main(void)
 	  }
 	  counter ++;
 	  HAL_Delay (1000) ;
-	  //t
+	  //todo
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
