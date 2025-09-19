@@ -57,10 +57,32 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define LED_RED_Pin GPIO_PIN_5
+#define LED_RED_Pin GPIO_PIN_1
 #define LED_RED_GPIO_Port GPIOA
-#define LED_YELLOW_Pin GPIO_PIN_6
+#define LED_GREEN_Pin GPIO_PIN_2
+#define LED_GREEN_GPIO_Port GPIOA
+#define LED_YELLOW_Pin GPIO_PIN_3
 #define LED_YELLOW_GPIO_Port GPIOA
+#define LED7_a_Pin GPIO_PIN_8
+#define LED7_a_GPIO_Port GPIOA
+#define LED7_b_Pin GPIO_PIN_9
+#define LED7_b_GPIO_Port GPIOA
+#define LED7_c_Pin GPIO_PIN_10
+#define LED7_c_GPIO_Port GPIOA
+#define LED7_d_Pin GPIO_PIN_11
+#define LED7_d_GPIO_Port GPIOA
+#define LED7_e_Pin GPIO_PIN_12
+#define LED7_e_GPIO_Port GPIOA
+#define LED7_f_Pin GPIO_PIN_13
+#define LED7_f_GPIO_Port GPIOA
+#define LED7_g_Pin GPIO_PIN_14
+#define LED7_g_GPIO_Port GPIOA
+#define LED_REDB4_Pin GPIO_PIN_4
+#define LED_REDB4_GPIO_Port GPIOB
+#define LED_GREENB5_Pin GPIO_PIN_5
+#define LED_GREENB5_GPIO_Port GPIOB
+#define LED_YELLOWB6_Pin GPIO_PIN_6
+#define LED_YELLOWB6_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 
