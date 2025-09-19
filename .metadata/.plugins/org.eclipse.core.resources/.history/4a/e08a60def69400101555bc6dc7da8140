@@ -95,11 +95,11 @@ int main(void)
   {
     /* USER CODE END WHILE */
 	  if ( (counter/2) % 2 == 0) {
-		  HAL_GPIO_WritePin ( GPIOA , GPIO_PIN_5 , GPIO_PIN_RESET ) ;
-		  HAL_GPIO_WritePin ( GPIOA , GPIO_PIN_6 , GPIO_PIN_SET ) ;
-	  } else {
 		  HAL_GPIO_WritePin ( GPIOA , GPIO_PIN_5 , GPIO_PIN_SET ) ;
 		  HAL_GPIO_WritePin ( GPIOA , GPIO_PIN_6 , GPIO_PIN_RESET ) ;
+	  } else {
+		  HAL_GPIO_WritePin ( GPIOA , GPIO_PIN_5 , GPIO_PIN_RESET ) ;
+		  HAL_GPIO_WritePin ( GPIOA , GPIO_PIN_6 , GPIO_PIN_SET ) ;
 	  }
 	  counter ++;
 	  HAL_Delay (1000) ;

@@ -123,25 +123,25 @@ int main(void)
  8000166:	f003 0301 	and.w	r3, r3, #1
  800016a:	2b00      	cmp	r3, #0
  800016c:	d10a      	bne.n	8000184 <main+0x38>
-		  HAL_GPIO_WritePin ( GPIOA , GPIO_PIN_5 , GPIO_PIN_SET ) ;
- 800016e:	2201      	movs	r2, #1
+		  HAL_GPIO_WritePin ( GPIOA , GPIO_PIN_5 , GPIO_PIN_RESET ) ;
+ 800016e:	2200      	movs	r2, #0
  8000170:	2120      	movs	r1, #32
  8000172:	480d      	ldr	r0, [pc, #52]	; (80001a8 <main+0x5c>)
  8000174:	f000 fbea 	bl	800094c <HAL_GPIO_WritePin>
-		  HAL_GPIO_WritePin ( GPIOA , GPIO_PIN_6 , GPIO_PIN_RESET ) ;
- 8000178:	2200      	movs	r2, #0
+		  HAL_GPIO_WritePin ( GPIOA , GPIO_PIN_6 , GPIO_PIN_SET ) ;
+ 8000178:	2201      	movs	r2, #1
  800017a:	2140      	movs	r1, #64	; 0x40
  800017c:	480a      	ldr	r0, [pc, #40]	; (80001a8 <main+0x5c>)
  800017e:	f000 fbe5 	bl	800094c <HAL_GPIO_WritePin>
  8000182:	e009      	b.n	8000198 <main+0x4c>
 	  } else {
-		  HAL_GPIO_WritePin ( GPIOA , GPIO_PIN_5 , GPIO_PIN_RESET ) ;
- 8000184:	2200      	movs	r2, #0
+		  HAL_GPIO_WritePin ( GPIOA , GPIO_PIN_5 , GPIO_PIN_SET ) ;
+ 8000184:	2201      	movs	r2, #1
  8000186:	2120      	movs	r1, #32
  8000188:	4807      	ldr	r0, [pc, #28]	; (80001a8 <main+0x5c>)
  800018a:	f000 fbdf 	bl	800094c <HAL_GPIO_WritePin>
-		  HAL_GPIO_WritePin ( GPIOA , GPIO_PIN_6 , GPIO_PIN_SET ) ;
- 800018e:	2201      	movs	r2, #1
+		  HAL_GPIO_WritePin ( GPIOA , GPIO_PIN_6 , GPIO_PIN_RESET ) ;
+ 800018e:	2200      	movs	r2, #0
  8000190:	2140      	movs	r1, #64	; 0x40
  8000192:	4805      	ldr	r0, [pc, #20]	; (80001a8 <main+0x5c>)
  8000194:	f000 fbda 	bl	800094c <HAL_GPIO_WritePin>
