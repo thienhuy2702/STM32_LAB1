@@ -110,7 +110,7 @@ int main(void)
 				  }
 				  break;
 
-		  case GREEN:
+		  case YELLOW:
 			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET); // Red OFF
 			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_SET);   // Yellow ON
 			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, GPIO_PIN_RESET);   // Green OFF
@@ -120,7 +120,7 @@ int main(void)
 			  }
 			  break;
 
-		  case YELLOW:
+		  case GREEN:
 			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET); // Red OFF
 			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_RESET); // Yellow OFF
 			  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, GPIO_PIN_SET); // Green ON (active-low)
