@@ -196,8 +196,8 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	 int counter = 0;
 	 while(1){
+	 int counter = 0;
 	 if ( counter >= 10) counter = 0;
 	 display7seg ( counter ++) ;
 	 HAL_Delay (1000) ;
