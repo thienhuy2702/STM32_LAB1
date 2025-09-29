@@ -74,47 +74,53 @@ void clearAllClock(){
 
 void setNumberOnClock(int num){
 	//In this function, we set x led on according to the value of "num".
-	switch(num){
-		case 0:
-			HAL_GPIO_WritePin(GPIOA, time_0_Pin, SET);
-			break;
-		case 1:
-			HAL_GPIO_WritePin(GPIOA, time_1_Pin, SET);
-			break;
-		case 2:
-			HAL_GPIO_WritePin(GPIOA, time_2_Pin, SET);
-			break;
-		case 3:
-			HAL_GPIO_WritePin(GPIOA, time_3_Pin, SET);
-			break;
-		case 4:
-			HAL_GPIO_WritePin(GPIOA, time_4_Pin, SET);
-			break;
-		case 5:
-			HAL_GPIO_WritePin(GPIOA, time_5_Pin, SET);
-			break;
-		case 6:
-			HAL_GPIO_WritePin(GPIOA, time_6_Pin, SET);
-			break;
-		case 7:
-			HAL_GPIO_WritePin(GPIOA, time_7_Pin, SET);
-			break;
-		case 8:
-			HAL_GPIO_WritePin(GPIOA, time_8_Pin, SET);
-			break;
-		case 9:
-			HAL_GPIO_WritePin(GPIOA, time_9_Pin, SET);
-			break;
-		case 10:
-			HAL_GPIO_WritePin(GPIOA, time_10_Pin, SET);
-			break;
-		case 11:
-			HAL_GPIO_WritePin(GPIOA, time_11_Pin, SET);
-			break;
-		default:
-			// Không làm gì nếu num không hợp lệ
-			break;
-	}
+	if(num == 0){
+			HAL_GPIO_WritePin(LED_12_GPIO_Port, LED_12_Pin, SET);
+		}
+
+	if(num == 1){
+			HAL_GPIO_WritePin(LED_1_GPIO_Port, LED_1_Pin, SET);
+		}
+
+	if(num == 2){
+			HAL_GPIO_WritePin(LED_2_GPIO_Port, LED_2_Pin, SET);
+		}
+
+	if(num == 3){
+			HAL_GPIO_WritePin(LED_3_GPIO_Port, LED_3_Pin, SET);
+		}
+
+	if(num == 4){
+			HAL_GPIO_WritePin(LED_4_GPIO_Port, LED_4_Pin, SET);
+		}
+
+	if(num == 5){
+			HAL_GPIO_WritePin(LED_5_GPIO_Port, LED_5_Pin, SET);
+		}
+
+	if(num == 6){
+			HAL_GPIO_WritePin(LED_6_GPIO_Port, LED_6_Pin, SET);
+		}
+
+	if(num == 7){
+			HAL_GPIO_WritePin(LED_7_GPIO_Port, LED_7_Pin, SET);
+		}
+
+	if(num == 8){
+			HAL_GPIO_WritePin(LED_8_GPIO_Port, LED_8_Pin, SET);
+		}
+
+	if(num == 9){
+			HAL_GPIO_WritePin(LED_9_GPIO_Port, LED_9_Pin, SET);
+		}
+
+	if(num == 10){
+			HAL_GPIO_WritePin(LED_10_GPIO_Port, LED_10_Pin, SET);
+		}
+
+	if(num == 11){
+			HAL_GPIO_WritePin(LED_11_GPIO_Port, LED_11_Pin, SET);
+		}
 }
 /* USER CODE END 0 */
 
@@ -134,7 +140,7 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-
+  uint32_t counter = 0;
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -152,19 +158,8 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  int count = 0;
-  clearAllClock();
-
   while (1)
   {
-	 if(count == 12){
-		 count = 0;
-		 clearAllClock();
-	 }
-		 clearAllClock();
-		 setNumberOnClock(count);
-		 count++;
-		 HAL_Delay(1000);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

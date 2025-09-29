@@ -57,7 +57,6 @@ void setNumberOnClock(int num);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 void clearAllClock(){
-
 	HAL_GPIO_WritePin(GPIOA, time_0_Pin, RESET);
 	HAL_GPIO_WritePin(GPIOA, time_1_Pin, RESET);
 	HAL_GPIO_WritePin(GPIOA, time_2_Pin, RESET);
@@ -73,48 +72,59 @@ void clearAllClock(){
 }
 
 void setNumberOnClock(int num){
-	//In this function, we set x led on according to the value of "num".
+
 	switch(num){
 		case 0:
 			HAL_GPIO_WritePin(GPIOA, time_0_Pin, SET);
 			break;
+
 		case 1:
 			HAL_GPIO_WritePin(GPIOA, time_1_Pin, SET);
 			break;
+
 		case 2:
 			HAL_GPIO_WritePin(GPIOA, time_2_Pin, SET);
 			break;
+
 		case 3:
 			HAL_GPIO_WritePin(GPIOA, time_3_Pin, SET);
 			break;
+
 		case 4:
 			HAL_GPIO_WritePin(GPIOA, time_4_Pin, SET);
 			break;
+
 		case 5:
 			HAL_GPIO_WritePin(GPIOA, time_5_Pin, SET);
 			break;
+
 		case 6:
 			HAL_GPIO_WritePin(GPIOA, time_6_Pin, SET);
 			break;
+
 		case 7:
 			HAL_GPIO_WritePin(GPIOA, time_7_Pin, SET);
 			break;
+
 		case 8:
 			HAL_GPIO_WritePin(GPIOA, time_8_Pin, SET);
 			break;
+
 		case 9:
 			HAL_GPIO_WritePin(GPIOA, time_9_Pin, SET);
 			break;
+
 		case 10:
 			HAL_GPIO_WritePin(GPIOA, time_10_Pin, SET);
 			break;
+
 		case 11:
 			HAL_GPIO_WritePin(GPIOA, time_11_Pin, SET);
 			break;
+
 		default:
-			// Không làm gì nếu num không hợp lệ
+			// Không hợp lệ thì không bật LED nào
 			break;
-	}
 }
 /* USER CODE END 0 */
 
@@ -157,18 +167,19 @@ int main(void)
 
   while (1)
   {
-	 if(count == 12){
-		 count = 0;
-		 clearAllClock();
-	 }
-		 clearAllClock();
-		 setNumberOnClock(count);
-		 count++;
-		 HAL_Delay(1000);
-    /* USER CODE END WHILE */
+	  if(count == 12){
+		  count = 0;
+		  clearAllClock();
+	  }
+
+	  clearAllClock();
+	  setNumberOnClock(count);
+	  count++;
+	  HAL_Delay(1000);
+	/* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-  }
+
   /* USER CODE END 3 */
 }
 
