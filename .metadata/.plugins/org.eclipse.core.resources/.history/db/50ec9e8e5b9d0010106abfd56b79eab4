@@ -54,110 +54,7 @@ static void MX_GPIO_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-void clearAllClock(){
 
-	HAL_GPIO_WritePin(GPIOA, time_0_Pin, RESET);
-	HAL_GPIO_WritePin(GPIOA, time_1_Pin, RESET);
-	HAL_GPIO_WritePin(GPIOA, time_2_Pin, RESET);
-	HAL_GPIO_WritePin(GPIOA, time_3_Pin, RESET);
-	HAL_GPIO_WritePin(GPIOA, time_4_Pin, RESET);
-	HAL_GPIO_WritePin(GPIOA, time_5_Pin, RESET);
-	HAL_GPIO_WritePin(GPIOA, time_6_Pin, RESET);
-	HAL_GPIO_WritePin(GPIOA, time_7_Pin, RESET);
-	HAL_GPIO_WritePin(GPIOA, time_8_Pin, RESET);
-	HAL_GPIO_WritePin(GPIOA, time_9_Pin, RESET);
-	HAL_GPIO_WritePin(GPIOA, time_10_Pin, RESET);
-	HAL_GPIO_WritePin(GPIOA, time_11_Pin, RESET);
-}
-
-void setNumberOnClock(int num){
-	//In this function, we set x led on according to the value of "num".
-	switch(num){
-		case 0:
-			HAL_GPIO_WritePin(GPIOA, time_0_Pin, SET);
-			break;
-		case 1:
-			HAL_GPIO_WritePin(GPIOA, time_1_Pin, SET);
-			break;
-		case 2:
-			HAL_GPIO_WritePin(GPIOA, time_2_Pin, SET);
-			break;
-		case 3:
-			HAL_GPIO_WritePin(GPIOA, time_3_Pin, SET);
-			break;
-		case 4:
-			HAL_GPIO_WritePin(GPIOA, time_4_Pin, SET);
-			break;
-		case 5:
-			HAL_GPIO_WritePin(GPIOA, time_5_Pin, SET);
-			break;
-		case 6:
-			HAL_GPIO_WritePin(GPIOA, time_6_Pin, SET);
-			break;
-		case 7:
-			HAL_GPIO_WritePin(GPIOA, time_7_Pin, SET);
-			break;
-		case 8:
-			HAL_GPIO_WritePin(GPIOA, time_8_Pin, SET);
-			break;
-		case 9:
-			HAL_GPIO_WritePin(GPIOA, time_9_Pin, SET);
-			break;
-		case 10:
-			HAL_GPIO_WritePin(GPIOA, time_10_Pin, SET);
-			break;
-		case 11:
-			HAL_GPIO_WritePin(GPIOA, time_11_Pin, SET);
-			break;
-		default:
-			// Không làm gì nếu num không hợp lệ
-			break;
-	}
-}
-
-void clearNumberOnClock(int num){
-    switch(num){
-        case 0:
-            HAL_GPIO_WritePin(GPIOA, time_0_Pin, RESET);
-            break;
-        case 1:
-            HAL_GPIO_WritePin(GPIOA, time_1_Pin, RESET);
-            break;
-        case 2:
-            HAL_GPIO_WritePin(GPIOA, time_2_Pin, RESET);
-            break;
-        case 3:
-            HAL_GPIO_WritePin(GPIOA, time_3_Pin, RESET);
-            break;
-        case 4:
-            HAL_GPIO_WritePin(GPIOA, time_4_Pin, RESET);
-            break;
-        case 5:
-            HAL_GPIO_WritePin(GPIOA, time_5_Pin, RESET);
-            break;
-        case 6:
-            HAL_GPIO_WritePin(GPIOA, time_6_Pin, RESET);
-            break;
-        case 7:
-            HAL_GPIO_WritePin(GPIOA, time_7_Pin, RESET);
-            break;
-        case 8:
-            HAL_GPIO_WritePin(GPIOA, time_8_Pin, RESET);
-            break;
-        case 9:
-            HAL_GPIO_WritePin(GPIOA, time_9_Pin, RESET);
-            break;
-        case 10:
-            HAL_GPIO_WritePin(GPIOA, time_10_Pin, RESET);
-            break;
-        case 11:
-            HAL_GPIO_WritePin(GPIOA, time_11_Pin, RESET);
-            break;
-        default:
-            // Không làm gì nếu num không hợp lệ
-            break;
-    }
-}
 /* USER CODE END 0 */
 
 /**
@@ -194,38 +91,8 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  int second = 0;
-  int minute = 0;
-  int hour = 0;
-
-  clearAllClock();
-
   while (1)
   {
-	  	//cap nhat sau 60s
-		if(second == 60){
-			second = 0;
-			minute++;
-		}
-		//cap nhat sau 60p
-		if(minute == 60){
-			minute = 0;
-			hour++;
-		}
-		//cap nhat sau 12h
-		if(hour == 12){
-			hour = 0;
-			second++;
-		}
-
-		clearAllClock();
-
-		setNumberOnClock(hour);
-		setNumberOnClock(minute/5);
-		setNumberOnClock(second/5);
-
-		second++;
-		HAL_Delay(1000);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -284,16 +151,10 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOA_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, time_0_Pin|time_1_Pin|time_2_Pin|time_3_Pin
-                          |time_4_Pin|time_5_Pin|time_6_Pin|time_7_Pin
-                          |time_8_Pin|time_9_Pin|time_10_Pin|time_11_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, LED_RED_Pin|LED_YELLOW_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pins : time_0_Pin time_1_Pin time_2_Pin time_3_Pin
-                           time_4_Pin time_5_Pin time_6_Pin time_7_Pin
-                           time_8_Pin time_9_Pin time_10_Pin time_11_Pin */
-  GPIO_InitStruct.Pin = time_0_Pin|time_1_Pin|time_2_Pin|time_3_Pin
-                          |time_4_Pin|time_5_Pin|time_6_Pin|time_7_Pin
-                          |time_8_Pin|time_9_Pin|time_10_Pin|time_11_Pin;
+  /*Configure GPIO pins : LED_RED_Pin LED_YELLOW_Pin */
+  GPIO_InitStruct.Pin = LED_RED_Pin|LED_YELLOW_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
