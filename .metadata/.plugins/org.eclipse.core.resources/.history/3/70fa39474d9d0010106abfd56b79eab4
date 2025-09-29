@@ -158,21 +158,6 @@ void clearNumberOnClock(int num){
             break;
     }
 }
-
-void setAllClock(){
-	HAL_GPIO_WritePin(GPIOA, time_0_Pin, SET);
-	HAL_GPIO_WritePin(GPIOA, time_1_Pin, SET);
-	HAL_GPIO_WritePin(GPIOA, time_2_Pin, SET);
-	HAL_GPIO_WritePin(GPIOA, time_3_Pin, SET);
-	HAL_GPIO_WritePin(GPIOA, time_4_Pin, SET);
-	HAL_GPIO_WritePin(GPIOA, time_5_Pin, SET);
-	HAL_GPIO_WritePin(GPIOA, time_6_Pin, SET);
-	HAL_GPIO_WritePin(GPIOA, time_7_Pin, SET);
-	HAL_GPIO_WritePin(GPIOA, time_8_Pin, SET);
-	HAL_GPIO_WritePin(GPIOA, time_9_Pin, SET);
-	HAL_GPIO_WritePin(GPIOA, time_10_Pin, SET);
-	HAL_GPIO_WritePin(GPIOA, time_11_Pin, SET);
-}
 /* USER CODE END 0 */
 
 /**
@@ -210,21 +195,24 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   int count = 0;
-  int step = 0;
+
+  HAL_GPIO_WritePin(GPIOA, time_0_Pin, SET);
+  HAL_GPIO_WritePin(GPIOA, time_1_Pin, SET);
+  HAL_GPIO_WritePin(GPIOA, time_2_Pin, SET);
+  HAL_GPIO_WritePin(GPIOA, time_3_Pin, SET);
+  HAL_GPIO_WritePin(GPIOA, time_4_Pin, SET);
+  HAL_GPIO_WritePin(GPIOA, time_5_Pin, SET);
+  HAL_GPIO_WritePin(GPIOA, time_6_Pin, SET);
+  HAL_GPIO_WritePin(GPIOA, time_7_Pin, SET);
+  HAL_GPIO_WritePin(GPIOA, time_8_Pin, SET);
+  HAL_GPIO_WritePin(GPIOA, time_9_Pin, SET);
+  HAL_GPIO_WritePin(GPIOA, time_10_Pin, SET);
+  HAL_GPIO_WritePin(GPIOA, time_11_Pin, SET);
 
   while (1)
   {
-	  if(step == 0){
-		  // Bật tất cả LED
-		  setAllClock();
-		  step = 1;   // chuyển sang bước tắt dần
-	  }
-	  else {
-		  // Tắt dần từng LED từ 1 -> 0
-		  clearNumberOnClock(count);
-		  count++;
-	  }
-
+	  clearNumberOnClock(count);
+	  count++;
 	  HAL_Delay(1000);
     /* USER CODE END WHILE */
 
