@@ -73,7 +73,7 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-
+  uint32_t counter = 0;
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -91,90 +91,8 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  	HAL_GPIO_WritePin(GPIOA, time_0_Pin, RESET);
-  	HAL_GPIO_WritePin(GPIOA, time_1_Pin, RESET);
-  	HAL_GPIO_WritePin(GPIOA, time_2_Pin, RESET);
-  	HAL_GPIO_WritePin(GPIOA, time_3_Pin, RESET);
-  	HAL_GPIO_WritePin(GPIOA, time_4_Pin, RESET);
-	HAL_GPIO_WritePin(GPIOA, time_5_Pin, RESET);
-	HAL_GPIO_WritePin(GPIOA, time_6_Pin, RESET);
-	HAL_GPIO_WritePin(GPIOA, time_7_Pin, RESET);
-	HAL_GPIO_WritePin(GPIOA, time_8_Pin, RESET);
-	HAL_GPIO_WritePin(GPIOA, time_9_Pin, RESET);
-	HAL_GPIO_WritePin(GPIOA, time_10_Pin, RESET);
-	HAL_GPIO_WritePin(GPIOA, time_11_Pin, RESET);
-
-	int count = 0;
-
   while (1)
   {
-	  	  //toggle 2 led 1 off 1 on nối đuôi
-	  		if (count == 0) {
-	  			HAL_GPIO_TogglePin(GPIOA, time_0_Pin);
-	  		}
-	      //Led 12 off, led 1 on roi tiep tuc
-	  		if (count == 1) {
-	  			HAL_GPIO_TogglePin(GPIOA, time_0_Pin);
-	  			HAL_GPIO_TogglePin(GPIOA, time_1_Pin);
-	  		}
-
-	  		if (count == 2) {
-	  			HAL_GPIO_TogglePin(GPIOA, time_1_Pin);
-	  			HAL_GPIO_TogglePin(GPIOA, time_2_Pin);
-	  		}
-
-	  		if (count == 3) {
-	  			HAL_GPIO_TogglePin(GPIOA, time_2_Pin);
-				HAL_GPIO_TogglePin(GPIOA, time_3_Pin);
-	  		}
-
-	  		if (count == 4) {
-	  			HAL_GPIO_TogglePin(GPIOA, time_3_Pin);
-	  			HAL_GPIO_TogglePin(GPIOA, time_4_Pin);
-	  		}
-
-	  		if (count == 5) {
-	  			HAL_GPIO_TogglePin(GPIOA, time_4_Pin);
-	  			HAL_GPIO_TogglePin(GPIOA, time_5_Pin);
-	  		}
-
-	  		if (count == 6) {
-	  			HAL_GPIO_TogglePin(GPIOA, time_5_Pin);
-	  			HAL_GPIO_TogglePin(GPIOA, time_6_Pin);
-	  		}
-
-	  		if (count == 7) {
-	  			HAL_GPIO_TogglePin(GPIOA, time_6_Pin);
-	  			HAL_GPIO_TogglePin(GPIOA, time_7_Pin);
-	  		}
-
-	  		if (count == 8) {
-	  			HAL_GPIO_TogglePin(GPIOA, time_7_Pin);
-				HAL_GPIO_TogglePin(GPIOA, time_8_Pin);
-	  		}
-
-	  		if (count == 9) {
-	  			HAL_GPIO_TogglePin(GPIOA, time_8_Pin);
-	  			HAL_GPIO_TogglePin(GPIOA, time_9_Pin);
-	  		}
-
-	  		if (count == 10) {
-	  			HAL_GPIO_TogglePin(GPIOA, time_9_Pin);
-				HAL_GPIO_TogglePin(GPIOA, time_10_Pin);
-	  		}
-
-	  		if (count == 11) {
-	  			HAL_GPIO_TogglePin(GPIOA, time_10_Pin);
-				HAL_GPIO_TogglePin(GPIOA, time_11_Pin);
-	  		}
-
-	  		if (count == 12) {
-	  			HAL_GPIO_TogglePin(GPIOA, time_11_Pin);
-				HAL_GPIO_TogglePin(GPIOA, time_0_Pin);
-	  			count = 0;
-	  		}
-	  		count++;
-	  		HAL_Delay(1000);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -231,11 +149,16 @@ static void MX_GPIO_Init(void)
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, time_0_Pin|time_1_Pin|time_2_Pin|time_3_Pin
                           |time_4_Pin|time_5_Pin|time_6_Pin|time_7_Pin
                           |time_8_Pin|time_9_Pin|time_10_Pin|time_11_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOB, a_Pin|b_Pin|c_Pin|d_Pin
+                          |e_Pin|f_Pin|g_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : time_0_Pin time_1_Pin time_2_Pin time_3_Pin
                            time_4_Pin time_5_Pin time_6_Pin time_7_Pin
@@ -247,6 +170,15 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : a_Pin b_Pin c_Pin d_Pin
+                           e_Pin f_Pin g_Pin */
+  GPIO_InitStruct.Pin = a_Pin|b_Pin|c_Pin|d_Pin
+                          |e_Pin|f_Pin|g_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */
